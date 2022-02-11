@@ -3,6 +3,13 @@
 For a bipartite graph of {P, R}, partition P into sets such that every element in
 partition is adjacent to exactly the same nodes in R.
 
+# Solutions
+
+- a Datalog one using Crepe
+- A hand-coded one with HashMaps
+
+Any other ideas are welcome!
+
 # Current Results
 
 Comparing the Datalog impl to a for loops and hashmaps impl: The Datalog impl using Crepe is incredibly slower, but I think that is due to use of `_` in expressions, in Crepe I believe this unneccessarily matches against every item of the set, so refactoring the logic to not need it is a next step.

@@ -9,6 +9,12 @@ pub fn criterion_benchmark(c: &mut Criterion) {
             |b| b.iter(|| for_loops_and_hashmaps::compute(black_box(example_input(i)))),
         );
     }
+
+    let i = 10000;
+    c.bench_function(
+        format!("for loops and hashmaps: {} edges", i * TEST_UNIT).as_ref(),
+        |b| b.iter(|| for_loops_and_hashmaps::compute(black_box(example_input(i)))),
+    );
 }
 
 criterion_group!(benches, criterion_benchmark);
