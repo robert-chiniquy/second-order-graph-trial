@@ -15,6 +15,7 @@ crepe! {
     @input
     struct Edge(P, R);
 
+    struct InP(P);
     struct DifferentSets(P, P);
 
     @output
@@ -23,11 +24,13 @@ crepe! {
 
     // TODO: the use of _ here is probably dramatically inefficient
 
+    InP(p) <- Edge(p, _);
+
     // Any P1, P2 which do not share any one edge go in different sets
-    DifferentSets(p1, p2) <- Edge(p1, r), Edge(p2, _), (p1 != p2), !Edge(p2, r);
+    DifferentSets(p1, p2) <- Edge(p1, r), InP(p2), (p1 != p2), !Edge(p2, r);
 
     // Any P1, P2 which are not in different sets go in the same set
-    SameSet(p1, p2) <- Edge(p1, _), Edge(p2, _), !DifferentSets(p1, p2);
+    SameSet(p1, p2) <- InP(p1), InP(p2), !DifferentSets(p1, p2);
 }
 
 #[test]
