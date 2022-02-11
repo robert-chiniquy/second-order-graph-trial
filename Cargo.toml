@@ -1,0 +1,29 @@
+[package]
+name = "second-order-graph-trial"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = ["datalog", "for-loops-and-hashmaps", "common", "utilities"]
+
+[profile.release]
+opt-level = 3
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+datalog = {path="./datalog"}
+for-loops-and-hashmaps = {path="./for-loops-and-hashmaps"}
+
+[dev-dependencies]
+criterion = "0.3"
+utilities = { path = "./utilities" }
+
+[[bench]]
+name = "datalog"
+harness = false
+
+[[bench]]
+name = "for-loops"
+harness = false
