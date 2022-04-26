@@ -4,8 +4,8 @@ use utilities::*;
 
 pub fn criterion_benchmark(c: &mut Criterion) {
     for i in (1..TEST_SIZE).step_by(TEST_STEP) {
-        c.bench_function(format!("datalog: {} edges", i * TEST_UNIT).as_ref(), |b| {
-            b.iter(|| datalog::compute(black_box(example_input(i))))
+        c.bench_function(format!("crepe: {} edges", i * TEST_UNIT).as_ref(), |b| {
+            b.iter(|| with_crepe::compute(black_box(example_input(i))))
         });
     }
 }

@@ -30,7 +30,7 @@ crepe! {
     DifferentSets(p1, p2) <- Edge(p1, r), InP(p2), (p1 != p2), !Edge(p2, r);
 
     // Any P1, P2 which are not in different sets go in the same set
-    SameSet(p1, p2) <- InP(p1), InP(p2), !DifferentSets(p1, p2);
+    SameSet(p1, p2) <- InP(p1), InP(p2), (p1 != p2), !DifferentSets(p1, p2);
 }
 
 #[test]

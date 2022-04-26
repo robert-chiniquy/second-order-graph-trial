@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [workspace]
-members = ["datalog", "for-loops-and-hashmaps", "common", "utilities"]
+members = ["with-ascent", "with-crepe", "for-loops-and-hashmaps", "common", "utilities"]
 
 [profile.release]
 opt-level = 3
@@ -13,15 +13,21 @@ opt-level = 3
 opt-level = 3
 
 [dependencies]
-datalog = {path="./datalog"}
+with-crepe = {path="./with-crepe"}
 for-loops-and-hashmaps = {path="./for-loops-and-hashmaps"}
+with-ascent = {path="./with-ascent"}
+
 
 [dev-dependencies]
 criterion = "0.3"
 utilities = { path = "./utilities" }
 
 [[bench]]
-name = "datalog"
+name = "ascent"
+harness = false
+
+[[bench]]
+name = "crepe"
 harness = false
 
 [[bench]]
