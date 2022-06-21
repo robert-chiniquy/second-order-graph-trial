@@ -8,8 +8,6 @@ For a bipartite graph of {P, R}, partition P into sets such that every element i
 - Another Datalog one using Ascent
 - A hand-coded one with HashMaps
 
-Any other ideas are welcome!
-
 # Benchmarks
 
 ```
